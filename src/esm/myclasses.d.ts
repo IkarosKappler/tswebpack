@@ -3,4 +3,5 @@ export declare class MyClass {
     myString: string;
     constructor();
     printMe(): void;
+    printMeDouble(): void;
 }

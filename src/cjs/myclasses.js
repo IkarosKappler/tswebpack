@@ -11,6 +11,9 @@ var MyClass = /** @class */ (function () {
     MyClass.prototype.printMe = function () {
         console.log((0, myfunctions_1.makeMyString)(this));
     };
+    MyClass.prototype.printMeDouble = function () {
+        console.log((0, myfunctions_1.makeDoubleString)((0, myfunctions_1.makeMyString)(this)));
+    };
     return MyClass;
 }());
 exports.MyClass = MyClass;

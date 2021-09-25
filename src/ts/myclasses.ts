@@ -1,5 +1,5 @@
 import { CONST_A, CONST_B } from "./myconstants";
-import { makeMyString } from "./myfunctions";
+import { makeDoubleString, makeMyString } from "./myfunctions";
 
 export class MyClass  {
     myNum : number;
@@ -10,5 +10,8 @@ export class MyClass  {
     }
     printMe() {
         console.log( makeMyString(this) );
+    }
+    printMeDouble() {
+        console.log( makeDoubleString(makeMyString(this)) );
     }
 }

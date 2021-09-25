@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "A base setup for typescript with webpack plus bundling.",
   "main": "src/cjs/index.js",
+  "module": "src/esm/index.js",
+  "types": "src/cjs/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile:cjs": "tsc -p tsconfig.json --target es5 --module commonjs --outDir src/cjs/",
-    "compile:esm": "tsc -p tsconfig.json --target ES2015 --module ESNext --outdir src/esm/"
+    "compile:esm": "tsc -p tsconfig.json --target ES2015 --module ESNext --outdir src/esm/ --moduleResolution node"
   },
   "author": "Ikaros Kappler",
   "license": "MIT",
   "dependencies": {
+    "repeat-string": "^1.6.1",
     "typescript": "^4.4.3"
   }
 }
