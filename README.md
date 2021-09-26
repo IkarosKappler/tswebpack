@@ -64,7 +64,7 @@ into their HTML file using `<script src="...">` tags.
 
 I have seen people who add the bundle into their repository, some don't.
 
-It's up to you, but imagine that not everone has a build chain set up and ready and maybe just want
+It's up to you, but imagine that not everyone has a build chain set up and ready and maybe just want
 to have a peek into your library. Imagine there is a bundled file that's ready to be used out of the box.
 
 So let's bundle our project.
