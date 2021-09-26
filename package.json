@@ -7,6 +7,8 @@
   "types": "src/cjs/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run compile && npm run webpack",
+    "compile": "npm run compile:cjs && npm run compile:esm",
     "compile:cjs": "tsc -p tsconfig.json --target es5 --module commonjs --outDir src/cjs/",
     "compile:esm": "tsc -p tsconfig.json --target ES2015 --module ESNext --outdir src/esm/ --moduleResolution node",
     "webpack": "npm run webpack:dev && npm run webpack:prod",
