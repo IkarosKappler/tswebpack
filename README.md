@@ -111,7 +111,22 @@ module.exports = ({
 });
 ```
 
-Running webpack:
+### Webpack's entry point
+Take a look at the `./src/cjs/entry.js` file:
+```js
+// Expose all your components to the global scope here.
+
+globalThis.MyClass = require("./myclasses").MyClass;
+```
+This file is not generated, you will have to maintain it manually each time you add new components.
+
+In this file you should bind all components/classes/functions/constants your global app needs
+to the global scope, which is `window` in the browser, or in a more general case `globalThis`
+(keep compatible with node environment that do not know the `window` instance).
+
+
+
+### Running webpack
 ```bash 
 npx webpack --config webpack.config.js
 ```

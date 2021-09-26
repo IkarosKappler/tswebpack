@@ -1,5 +1,3 @@
-// Expose all you components to the
+// Expose all your components to the global scope here.
 
-// globalThis.repeat = require("repeat-string");
-globalThis["repeat-string"] = require("repeat-string").default;
 globalThis.MyClass = require("./myclasses").MyClass;
