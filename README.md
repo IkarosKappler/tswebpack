@@ -113,7 +113,7 @@ module.exports = ({
 
 Running webpack:
 ```bash 
-npm
+npx webpack --config webpack.config.js
 ```
 
 
