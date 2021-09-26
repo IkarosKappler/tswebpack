@@ -7,7 +7,7 @@ module.exports = env => {
     entry: './src/cjs/entry.js',
     mode: env.development ? "development" : "production",
     output: {
-      filename: name + (env.development ? '' : '.min') + '.js',
+      filename: name + "-[name]" + (env.development ? '' : '.min') + '.js',
       path: path.resolve(__dirname, 'dist'),
     },
     // Add this line to get the ./dist/build.js.map file
@@ -18,6 +18,16 @@ module.exports = env => {
           // extractComment=false to prevent the generation of License.txt
           new TerserPlugin({extractComments: false})
       ],
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /node_modules/,
+            chunks: 'initial',
+            name: 'vendor',
+            enforce: true
+          },
+        }
+      } 
     }
   }
 };

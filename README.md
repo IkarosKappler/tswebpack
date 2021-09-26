@@ -81,7 +81,10 @@ Note: let's also install the terser plugin which gives us a bit more control ove
 
 
 ### Create the webpack config
-Create the file `webpack.config.js`:
+Create the file `webpack.config.js`. Note that this webpack config is a bit dynamic
+as is reacts on the `env` settings (`development` or `production`). We use this switch
+to emit different builds for the dev environment (non-minified, larger file size) and the 
+production environment (minified, small file size).
 ```js
 const path = require('path');
 const TerserPlugin = require("terser-webpack-plugin");
@@ -108,6 +111,12 @@ module.exports = ({
 });
 ```
 
+Running webpack:
+```bash 
+npm
+```
+
+
 ## Scripts
 ```bash
 npm run compile:cjs
@@ -122,15 +131,55 @@ Emits the ES2016 module `esm` Javascript files into the `./src/esm/` directory.
 ```bash
 npm run webpack:dev
 ```
-Bundles the `cjs` files into a development package (non minified) into `./dist/tswebpack.js`. Note that
+Bundles the `cjs` files into a development package (non minified) into `./dist/tswebpack-main.js`. Note that
 `tswebpack` is the package name from the `package.json` file.
 
 ```bash
 npm run webpack:prod
 ```
 Bundles the `cjs` files into a production package (minified=all unneeded whitespace removed) into 
-`./dist/tswebpack.min.js`.
+`./dist/tswebpack-main.min.js`.
 
+
+## Code splitting and the `vendor` chunk
+There is a caveat you will notice when you use external libraries (usually from the `node_modules`
+directory): *webpack will bundle these libraries into your build, too!* This will blow
+up your code and harbours the danger of duplicate libraries being loaded if a different
+script includes the same libs.
+
+One the one hand this js totally legitimate, because these parts are required to get your code
+running, and maybe you only have one single build containing everything you'll need, which
+is typical for larger web applications.
+
+On the other hand you might wish to have shared libraries installed by your own (like a global jQuery, 
+Axios, Bootstrap, Three, Paperjs, Twojs, TweenMax, ...), because they might be used by other code fragments 
+too which are not bundled here.
+
+The solution for this is: code chunking.
+
+Add this to the `optimization` part:
+```json
+optimization {
+    ...
+    splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /node_modules/,
+            chunks: 'initial',
+            name: 'vendor',
+            enforce: true
+          },
+        }
+    } 
+    ...
+}
+```
+
+This will result in two separate files being emitted into `./dist/`:
+* tswebpack-main.js
+** Containing your code only
+* tswebpack-vendor.js
+** Containing the code that's required from your `./node_modules/`
 
 
 ### Current versions
@@ -142,3 +191,6 @@ At the time of writing this these are the versions I used:
 "webpack-cli": "^4.8.0"
 ...
 ```
+
+
+Have fun and don't forget to support your friends!
