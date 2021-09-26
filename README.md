@@ -203,9 +203,9 @@ optimization {
 ```
 
 When running webpack now this will result in two separate files being emitted into `./dist/`:
-* tswebpack-main.js
+* `tswebpack-main.js`
     * Containing your code only
-* tswebpack-vendor.js
+* `tswebpack-vendor.js`
     * Containing the code that's imported by your code from the `./node_modules/`
 
 Yay \o/
