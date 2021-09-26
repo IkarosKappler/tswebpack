@@ -2,7 +2,7 @@
 A basic typescript and webpack setup with cjs and esm target bundling.
 
 ## TypeScript or Babel?
-Both, the official TypeScript compiler `tsc` and Babel transpile TypeScript files `.tsc` to JavaScript. I decide
+Both, the official TypeScript compiler `tsc` and Babel transpile TypeScript files `*.ts` to JavaScript. I decide
 to use `tsc` as this is the official transpiler by the maintainer Microsoft.
 
 If you prefer to use Babel I recommend to take a look at this quick tutorial:
