@@ -171,10 +171,10 @@ Bundles the `cjs` files into a production package (minified=all unneeded whitesp
 ## Code splitting and the `vendor` chunk
 There is a caveat you will notice when you use external libraries (usually from the `node_modules`
 directory): *webpack will bundle these libraries into your build, too!* This will blow
-up your code and harbours the danger of duplicate libraries being loaded if a different
-script includes the same libs.
+up your code and harbours the danger of duplicate libraries being loaded (if a different
+script includes the same libs).
 
-One the one hand this js totally legitimate, because these parts are required to get your code
+On the one hand this js totally legitimate, because these parts are required to get your code
 running, and maybe you only have one single build containing everything you'll need, which
 is typical for larger web applications.
 
@@ -182,9 +182,9 @@ On the other hand you might wish to have shared libraries installed by your own 
 Axios, Bootstrap, Three, Paperjs, Twojs, TweenMax, ...), because they might be used by other code fragments 
 too which are not bundled here.
 
-The solution for this is: code chunking.
+The solution for this is: code splitting.
 
-Add this to the `optimization` part:
+To obtain that just add this snippet to the `optimization` part of your webpack config:
 ```json5
 optimization {
     // ...
@@ -202,11 +202,15 @@ optimization {
 }
 ```
 
-This will result in two separate files being emitted into `./dist/`:
+When running webpack now this will result in two separate files being emitted into `./dist/`:
 * tswebpack-main.js
     * Containing your code only
 * tswebpack-vendor.js
-    * Containing the code that's required from your `./node_modules/`
+    * Containing the code that's imported by your code from the `./node_modules/`
+
+Yay \o/
+
+If you find error please report them in an issue.
 
 
 ### Current versions
