@@ -16,7 +16,7 @@ npm install typescript
 
 ## Configure TypeScript
 Create a file `tsconfig.json` in your project's root directory.
-```json
+```json5
 {
     "compilerOptions": {
         "target": "es5",
@@ -26,8 +26,8 @@ Create a file `tsconfig.json` in your project's root directory.
 		"sourceMap": true,
 		"declaration": true,
 
+        // Additional settings to your fancy
 		"allowJs": false,
-
 		"forceConsistentCasingInFileNames": true,
 		"noImplicitReturns": false,
 		"noImplicitThis": false,
