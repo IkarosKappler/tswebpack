@@ -160,7 +160,7 @@ The solution for this is: code chunking.
 Add this to the `optimization` part:
 ```json
 optimization {
-    ...
+    // ...
     splitChunks: {
         cacheGroups: {
           vendor: {
@@ -171,7 +171,7 @@ optimization {
           },
         }
     } 
-    ...
+    // ...
 }
 ```
 
