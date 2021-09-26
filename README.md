@@ -51,16 +51,26 @@ tsc -p tsconfig.json
 This will transpile your `.ts` files to JavaScript files in `./src/cjs/`. Note that these are CommonJS (`cjs`) modules.
 
 If you want to create, let's say `esm` modules, you may change the `target` option to `"ES2015"` and `module` option
-to `"ESNext"`. This is also possible to override the settings in the `tsc` command:
+to `"ESNext"`. This is also possible by overriding the settings in the `tsc` command itself, so you don't need two 
+separated config files:
 ```bash
 tsc -p tsconfig.json --target ES2015 --module ESNext --outdir src/esm/ --moduleResolution node
 ```
 
+Take a look a the demo files in `./src/ts/`:
+* index.ts (exports all your stuff that should be exposed)
+* myclasses.ts (a class demo)
+* myconstants.ts (some constants)
+* myfunction.ts (two functions, a basic one and a secoond one that uses an external function from node_modules)
+
+Afer the `tsc` command was run the `./src/ts/*.ts` TypeScript files have been transpiled to JavaScript files
+in `./src/cjs/*.js`.
+
 
 ## Bundling: why?
-Bundling your project means to pack all your generated files up into one single JavaScript library file.
+To bundle your project means to pack all your generated files up into one single JavaScript library file.
 Some people still like to load the `cjs` version (which is the web browser compatible version) directly
-into their HTML file using `<script src="...">` tags.
+into their HTML document using `<script src="...">` tags.
 
 I have seen people who add the bundle into their repository, some don't.
 
@@ -71,7 +81,7 @@ So let's bundle our project.
 
 
 ## Bundling: Rollup or webpack
-Even though I had a good resultss with Rollup.js I am somehow more familiar with webpack and prefer
+Even though I had good results with Rollup.js I am somehow more familiar with webpack and prefer
 to use that one.
 
 ```bash
