@@ -15,7 +15,8 @@ npm install typescript
 ```
 
 ## Configure TypeScript
-```tsconfig.json
+Create a file `tsconfig.json` in your project's root directory.
+```json
 {
     "compilerOptions": {
         "target": "es5",
@@ -79,6 +80,8 @@ npm install webpack webpack-cli terser-webpack-plugin
 Note: let's also install the terser plugin which gives us a bit more control over the generated output.
 
 
+### Create the webpack config
+Create the file `webpack.config.js`:
 ```
 const path = require('path');
 const TerserPlugin = require("terser-webpack-plugin");
