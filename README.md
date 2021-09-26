@@ -58,10 +58,10 @@ tsc -p tsconfig.json --target ES2015 --module ESNext --outdir src/esm/ --moduleR
 ```
 
 Take a look a the demo files in `./src/ts/`:
-* index.ts (exports all your stuff that should be exposed)
-* myclasses.ts (a class demo)
-* myconstants.ts (some constants)
-* myfunction.ts (two functions, a basic one and a secoond one that uses an external function from node_modules)
+* `index.ts` (exports all your stuff that should be exposed)
+* `myclasses.ts` (a class demo)
+* `myconstants.ts` (some constants)
+* `myfunction.ts` (two functions, a basic one and a secoond one that uses an external function from node_modules)
 
 Afer the `tsc` command was run the `./src/ts/*.ts` TypeScript files have been transpiled to JavaScript files
 in `./src/cjs/*.js`.
