@@ -1,20 +1,23 @@
 const path = require('path');
 const TerserPlugin = require("terser-webpack-plugin");
+const { name } = require("./package.json");
 
-module.exports = env => ({
-  entry: './src/cjs/entry.js',
-  mode: "production",
-  output: {
-    filename: 'build.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-  // Add this line to get the ./dist/build.js.map file
-  devtool: "source-map",
-  optimization: {
-    minimize: true,
-    minimizer: [
-        // extractComment=false to prevent the generation of License.txt
-        new TerserPlugin({extractComments: false})
-    ],
+module.exports = env => {
+  return {
+    entry: './src/cjs/entry.js',
+    mode: env.development ? "development" : "production",
+    output: {
+      filename: name + (env.development ? '' : '.min') + '.js',
+      path: path.resolve(__dirname, 'dist'),
+    },
+    // Add this line to get the ./dist/build.js.map file
+    devtool: "source-map",
+    optimization: {
+      minimize: !env.development,
+      minimizer: [
+          // extractComment=false to prevent the generation of License.txt
+          new TerserPlugin({extractComments: false})
+      ],
+    }
   }
-});
+};

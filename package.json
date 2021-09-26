@@ -9,7 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile:cjs": "tsc -p tsconfig.json --target es5 --module commonjs --outDir src/cjs/",
     "compile:esm": "tsc -p tsconfig.json --target ES2015 --module ESNext --outdir src/esm/ --moduleResolution node",
-    "webpack": "npx webpack --config webpack.config.js"
+    "webpack": "npm run webpack:dev && npm run webpack:prod",
+    "webpack:dev": "npx webpack --env=development --config webpack.config.js",
+    "webpack:prod": "npx webpack --env=production --config webpack.config.js"
   },
   "author": "Ikaros Kappler",
   "license": "MIT",
