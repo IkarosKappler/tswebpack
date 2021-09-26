@@ -91,10 +91,11 @@ Note: let's also install the terser plugin which gives us a bit more control ove
 
 
 ### Create the webpack config
-Create the file `webpack.config.js`. Note that this webpack config is a bit dynamic
-as is reacts on the `env` settings (`development` or `production`). We use this switch
-to emit different builds for the dev environment (non-minified, larger file size) and the 
-production environment (minified, small file size).
+Create the file `webpack.config.js`. Note that the webpack config in this repo is a bit dynamic
+as is handles the `env` setting (`development` or `production`). We use this switch
+to emit two different builds: one for the dev environment (non-minified, larger file size) and 
+one for the production environment (minified, small file size).
+
 ```js
 const path = require('path');
 const TerserPlugin = require("terser-webpack-plugin");
