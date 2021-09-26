@@ -177,9 +177,9 @@ optimization {
 
 This will result in two separate files being emitted into `./dist/`:
 * tswebpack-main.js
-** Containing your code only
+    * Containing your code only
 * tswebpack-vendor.js
-** Containing the code that's required from your `./node_modules/`
+    * Containing the code that's required from your `./node_modules/`
 
 
 ### Current versions
