@@ -132,8 +132,9 @@ globalThis.MyClass = require("./myclasses").MyClass;
 This file is not generated, you will have to maintain it manually each time you add new components.
 
 In this file you should bind all components/classes/functions/constants to the global scope which 
-your global app needs. The global scope which is `window` in the browser, or in a more general 
-case `globalThis` (keep compatible with node environments which do not know the `window` instance).
+your global app needs. The global scope is usually `window` in the browser, or in a more general 
+case `globalThis`. The latter one keeps your code compatible with node environments which may not 
+know the `window` instance (and with and modern web browsers).
 
 
 
