@@ -158,7 +158,7 @@ too which are not bundled here.
 The solution for this is: code chunking.
 
 Add this to the `optimization` part:
-```json
+```json5
 optimization {
     // ...
     splitChunks: {
