@@ -72,12 +72,12 @@ To bundle your project means to pack all your generated files up into one single
 Some people still like to load the `cjs` version (which is the web browser compatible version) directly
 into their HTML document using `<script src="...">` tags.
 
-I have seen people who add the bundle into their repository, some don't.
+I have seen people who add the bundle to their repository, some don't.
 
 It's up to you, but imagine that not everyone has a build chain set up and ready and maybe just want
 to have a peek into your library. Imagine there is a bundled file that's ready to be used out of the box.
 
-So let's bundle our project.
+Cool, eh? So let's bundle our project.
 
 
 ## Bundling: Rollup or webpack
