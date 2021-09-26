@@ -10,7 +10,7 @@ https://dev.to/remshams/rolling-up-a-multi-module-system-esm-cjs-compatible-npm-
 
 
 ## Install Typescript
-```
+```bash
 npm install typescript
 ```
 
@@ -44,7 +44,7 @@ Create a file `tsconfig.json` in your project's root directory.
 ```
 
 ## Run `tsc`
-```
+```bash
 tsc -p tsconfig.json
 ```
 
@@ -52,7 +52,7 @@ This will transpile your `.ts` files to JavaScript files in `./src/cjs/`. Note t
 
 If you want to create, let's say `esm` modules, you may change the `target` option to `"ES2015"` and `module` option
 to `"ESNext"`. This is also possible to override the settings in the `tsc` command:
-```
+```bash
 tsc -p tsconfig.json --target ES2015 --module ESNext --outdir src/esm/ --moduleResolution node
 ```
 
@@ -74,7 +74,7 @@ So let's bundle our project.
 Even though I had a good resultss with Rollup.js I am somehow more familiar with webpack and prefer
 to use that one.
 
-```
+```bash
 npm install webpack webpack-cli terser-webpack-plugin
 ```
 Note: let's also install the terser plugin which gives us a bit more control over the generated output.
@@ -82,7 +82,7 @@ Note: let's also install the terser plugin which gives us a bit more control ove
 
 ### Create the webpack config
 Create the file `webpack.config.js`:
-```
+```js
 const path = require('path');
 const TerserPlugin = require("terser-webpack-plugin");
 const { name } = require("./package.json");
@@ -109,23 +109,23 @@ module.exports = ({
 ```
 
 ## Scripts
-```
+```bash
 npm run compile:cjs
 ```
 Emits the CommonJs `cjs` Javascript files into the `./src/cjs/` directory.
 
-```
+```bash
 npm run compile:esm
 ```
 Emits the ES2016 module `esm` Javascript files into the `./src/esm/` directory.
 
-```
+```bash
 npm run webpack:dev
 ```
 Bundles the `cjs` files into a development package (non minified) into `./dist/tswebpack.js`. Note that
 `tswebpack` is the package name from the `package.json` file.
 
-```
+```bash
 npm run webpack:prod
 ```
 Bundles the `cjs` files into a production package (minified=all unneeded whitespace removed) into 
