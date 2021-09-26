@@ -134,7 +134,7 @@ This file is not generated, you will have to maintain it manually each time you 
 In this file you should bind all components/classes/functions/constants to the global scope which 
 your global app needs. The global scope is usually `window` in the browser, or in a more general 
 case `globalThis`. The latter one keeps your code compatible with node environments which may not 
-know the `window` instance (and with and modern web browsers).
+know the `window` instance (and compatible with modern web browsers).
 
 
 
