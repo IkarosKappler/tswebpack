@@ -2,19 +2,19 @@
 A basic typescript and webpack setup with cjs and esm target bundling.
 
 ##### Table of Contents  
-[TSC or Babel](#tsc-or-babel)  
-[Install Typescript](#install-typescript)  
-[Configure Typescript](#configure-typescript)
-[Run `tsc`](#run-tsc)
-[Bundling: why?](#bundling-why)
-[Bundling: Rollup or webpack](#bundling-rollup-or-webpack)
-[Create the webpack config](#create-the-webpack-config)
-[Webpack's entry point](#webpacks-entry-point)
-[Exporting a library](#exporting-a-library)
-[Running webpack](#running-webpack)
-[Scripts](#scripts)
-[Code splitting and the `vendor` chunk](#code-splitting-and-the-vendor-chunk)
-[Current Versions](#current-versions)
+* [TSC or Babel](#tsc-or-babel)  
+    * [Install Typescript](#install-typescript)  
+    * [Configure Typescript](#configure-typescript)
+* [Run `tsc`](#run-tsc)
+* [Bundling: why?](#bundling-why)
+* [Bundling: Rollup or webpack](#bundling-rollup-or-webpack)
+    * [Create the webpack config](#create-the-webpack-config)
+    * [Webpack's entry point](#webpacks-entry-point)
+    * [Exporting a library](#exporting-a-library)
+    * [Running webpack](#running-webpack)
+* [Scripts](#scripts)
+* [Code splitting and the `vendor` chunk](#code-splitting-and-the-vendor-chunk)
+* [Current Versions](#current-versions)
 
 
 
@@ -31,7 +31,7 @@ https://dev.to/remshams/rolling-up-a-multi-module-system-esm-cjs-compatible-npm-
 npm install typescript
 ```
 
-## Configure TypeScript
+### Configure TypeScript
 Create a file `tsconfig.json` in your project's root directory.
 ```json5
 {
@@ -60,7 +60,7 @@ Create a file `tsconfig.json` in your project's root directory.
 }
 ```
 
-## Run `tsc`
+### Run `tsc`
 ```bash
 tsc -p tsconfig.json
 ```
