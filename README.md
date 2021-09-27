@@ -1,7 +1,24 @@
 # tswebpack
 A basic typescript and webpack setup with cjs and esm target bundling.
 
-## TypeScript or Babel?
+##### Table of Contents  
+[TSC or Babel](#tsc-or-babel)  
+[Install Typescript](#install-typescript)  
+[Configure Typescript](#configure-typescript)
+[Run `tsc`](#run-tsc)
+[Bundling: why?](#bundling-why)
+[Bundling: Rollup or webpack](#bundling-rollup-or-webpack)
+[Create the webpack config](#create-the-webpack-config)
+[Webpack's entry point](#webpacks-entry-point)
+[Exporting a library](#exporting-a-library)
+[Running webpack](#running-webpack)
+[Scripts](#scripts)
+[Code splitting and the `vendor` chunk](#code-splitting-and-the-vendor-chunk)
+[Current Versions](#current-versions)
+
+
+
+## TSC or Babel?
 Both, the official TypeScript compiler `tsc` and Babel transpile TypeScript files `*.ts` to JavaScript. I decide
 to use `tsc` as this is the official transpiler by the maintainer Microsoft.
 
