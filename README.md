@@ -156,6 +156,7 @@ globalThis.MyLibrary = require("./mylibrary").MyLibrary;
 
 This single line exposes your library, so each time you add components to the `MyLibrary` object
 it will automatically be accessible here, like `var myObject = new MyLibrary.MyClass();`.
+Doing this prohibits environment pollution and avoid naming clashes with other scripts.
 
 
 ### Running webpack
