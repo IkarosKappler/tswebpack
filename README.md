@@ -5,7 +5,7 @@ A basic typescript and webpack setup with cjs and esm target bundling.
 * [TSC or Babel](#tsc-or-babel)  
     * [Install Typescript](#install-typescript)  
     * [Configure Typescript](#configure-typescript)
-* [Run `tsc`](#run-tsc)
+    * [Run `tsc`](#run-tsc)
 * [Bundling: why?](#bundling-why)
 * [Bundling: Rollup or webpack](#bundling-rollup-or-webpack)
     * [Create the webpack config](#create-the-webpack-config)
