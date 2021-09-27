@@ -137,6 +137,26 @@ case `globalThis`. The latter one keeps your code compatible with node environme
 know the `window` instance (and compatible with modern web browsers).
 
 
+### Exporting a library
+Webpack itself supports to export your code as [libraries](https://github.com/webpack/docs/wiki/library-and-externals#examples)
+but I prefer to simple add a wrapper around my components and export that one.
+
+Example from `./src/ts/mylibrary.ts`:
+```typescript
+import { MyClass } from "./myclasses";
+
+export const MyLibrary = {
+    MyClass: MyClass
+}
+```
+And then change webpack's entry point in `./src/cjs/entry.js` to this:
+```js
+globalThis.MyLibrary = require("./mylibrary").MyLibrary;
+```
+
+This single line exposes your library, so each time you add components to the `MyLibrary` object
+it will automatically be accessible here, like `var myObject = new MyLibrary.MyClass();`.
+
 
 ### Running webpack
 ```bash 
@@ -210,7 +230,7 @@ When running webpack now this will result in two separate files being emitted in
 
 Yay \o/
 
-If you find error please report them in an issue.
+If you find any errors please report them in an issue.
 
 
 ### Current versions

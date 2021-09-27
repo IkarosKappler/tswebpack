@@ -1,4 +1,5 @@
+console.log(MyLibrary )
 
-var c = new MyClass();
+var c = new MyLibrary.MyClass();
 c.printMe();
 c.printMeDouble();
