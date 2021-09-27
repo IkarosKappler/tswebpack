@@ -21,21 +21,21 @@ Create a file `tsconfig.json` in your project's root directory.
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-		"lib": [ "es2015", "dom" ],
+	    "lib": [ "es2015", "dom" ],
 		
-		"sourceMap": true,
-		"declaration": true,
+	    "sourceMap": true,
+	    "declaration": true,
 
         // Additional settings to your fancy
-		"allowJs": false,
-		"forceConsistentCasingInFileNames": true,
-		"noImplicitReturns": false,
-		"noImplicitThis": false,
-		"noImplicitAny": false,
-		"strictNullChecks": false,
-		"suppressImplicitAnyIndexErrors": true,
-		"noUnusedLocals": false,
-		"noUnusedParameters": false
+	    "allowJs": false,
+	    "forceConsistentCasingInFileNames": true,
+	    "noImplicitReturns": false,
+	    "noImplicitThis": false,
+	    "noImplicitAny": false,
+	    "strictNullChecks": false,
+	    "suppressImplicitAnyIndexErrors": true,
+	    "noUnusedLocals": false,
+	    "noUnusedParameters": false
     },
     "include": ["./src/ts/**/*.ts"],
     "exclude": ["./dist", "node_modules"],
@@ -139,7 +139,7 @@ know the `window` instance (and compatible with modern web browsers).
 
 ### Exporting a library
 Webpack itself supports to export your code as [libraries](https://github.com/webpack/docs/wiki/library-and-externals#examples)
-but I prefer to simple add a wrapper around my components and export that one.
+but I prefer to simpley define a wrapper around my components and export that one.
 
 Example from `./src/ts/mylibrary.ts`:
 ```typescript
