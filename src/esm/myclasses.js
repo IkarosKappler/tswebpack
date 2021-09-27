@@ -5,11 +5,17 @@ export class MyClass {
         this.myNum = CONST_A;
         this.myString = CONST_B;
     }
+    getMe() {
+        return makeMyString(this);
+    }
+    getMeDouble() {
+        return makeDoubleString(makeMyString(this));
+    }
     printMe() {
-        console.log(makeMyString(this));
+        console.log(this.getMe());
     }
     printMeDouble() {
-        console.log(makeDoubleString(makeMyString(this)));
+        console.log(this.getMeDouble());
     }
 }
 //# sourceMappingURL=myclasses.js.map

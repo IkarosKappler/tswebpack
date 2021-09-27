@@ -6,7 +6,7 @@
   "module": "src/esm/index.js",
   "types": "src/cjs/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/mocha/bin/mocha test.js --reporter spec",
     "build": "npm run compile && npm run webpack",
     "compile": "npm run compile:cjs && npm run compile:esm",
     "compile:cjs": "tsc -p tsconfig.json --target es5 --module commonjs --outDir src/cjs/",
@@ -22,6 +22,7 @@
     "typescript": "^4.4.3"
   },
   "devDependencies": {
+    "mocha": "^9.1.2",
     "terser-webpack-plugin": "^5.2.4",
     "webpack": "^5.54.0",
     "webpack-cli": "^4.8.0"

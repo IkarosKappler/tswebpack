@@ -8,11 +8,17 @@ var MyClass = /** @class */ (function () {
         this.myNum = myconstants_1.CONST_A;
         this.myString = myconstants_1.CONST_B;
     }
+    MyClass.prototype.getMe = function () {
+        return (0, myfunctions_1.makeMyString)(this);
+    };
+    MyClass.prototype.getMeDouble = function () {
+        return (0, myfunctions_1.makeDoubleString)((0, myfunctions_1.makeMyString)(this));
+    };
     MyClass.prototype.printMe = function () {
-        console.log((0, myfunctions_1.makeMyString)(this));
+        console.log(this.getMe());
     };
     MyClass.prototype.printMeDouble = function () {
-        console.log((0, myfunctions_1.makeDoubleString)((0, myfunctions_1.makeMyString)(this)));
+        console.log(this.getMeDouble());
     };
     return MyClass;
 }());

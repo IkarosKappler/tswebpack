@@ -251,6 +251,23 @@ Yay \o/
 If you find any errors please report them in an issue.
 
 
+## Test your components
+A nice testing suite is [Mocha](https://mochajs.org/). There is a test script `test.js` which can be
+run using the `test` script from the `package.json`:
+```bash
+npm run test
+```
+
+The output should look like something like this:
+```
+Basic library test
+    ✔ should generate a constant string (1) and repeat it (2)
+
+
+  1 passing (3ms)
+```
+
+
 ### Current versions
 At the time of writing this these are the versions I used:
 ```

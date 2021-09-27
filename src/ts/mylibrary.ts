@@ -1,5 +1,8 @@
 import { MyClass } from "./myclasses";
+import { CONST_A, CONST_B } from "./myconstants";
 
 export const MyLibrary = {
-    MyClass: MyClass
+    MyClass,
+    CONST_A,
+    CONST_B
 }

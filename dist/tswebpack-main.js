@@ -9,9 +9,14 @@
 
 // Expose all your components to the global scope here.
 
+// First variant:
 globalThis.MyClass = __webpack_require__(/*! ./myclasses */ "./src/cjs/myclasses.js").MyClass;
 
 
+// Alternative variant: 
+// you might wrap your components into a library.
+// This is usually used to keep the gloal scope clean and avoid naming collisions
+// with other libraries.
 globalThis.MyLibrary = __webpack_require__(/*! ./mylibrary */ "./src/cjs/mylibrary.js").MyLibrary;
 
 
@@ -34,11 +39,17 @@ var MyClass = /** @class */ (function () {
         this.myNum = myconstants_1.CONST_A;
         this.myString = myconstants_1.CONST_B;
     }
+    MyClass.prototype.getMe = function () {
+        return (0, myfunctions_1.makeMyString)(this);
+    };
+    MyClass.prototype.getMeDouble = function () {
+        return (0, myfunctions_1.makeDoubleString)((0, myfunctions_1.makeMyString)(this));
+    };
     MyClass.prototype.printMe = function () {
-        console.log((0, myfunctions_1.makeMyString)(this));
+        console.log(this.getMe());
     };
     MyClass.prototype.printMeDouble = function () {
-        console.log((0, myfunctions_1.makeDoubleString)((0, myfunctions_1.makeMyString)(this)));
+        console.log(this.getMeDouble());
     };
     return MyClass;
 }());
@@ -98,8 +109,11 @@ exports.makeDoubleString = makeDoubleString;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.MyLibrary = void 0;
 var myclasses_1 = __webpack_require__(/*! ./myclasses */ "./src/cjs/myclasses.js");
+var myconstants_1 = __webpack_require__(/*! ./myconstants */ "./src/cjs/myconstants.js");
 exports.MyLibrary = {
-    MyClass: myclasses_1.MyClass
+    MyClass: myclasses_1.MyClass,
+    CONST_A: myconstants_1.CONST_A,
+    CONST_B: myconstants_1.CONST_B
 };
 //# sourceMappingURL=mylibrary.js.map
 

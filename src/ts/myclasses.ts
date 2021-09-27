@@ -8,10 +8,19 @@ export class MyClass  {
         this.myNum = CONST_A;
         this.myString = CONST_B;
     }
-    printMe() {
-        console.log( makeMyString(this) );
+    getMe() {
+        return makeMyString(this);
     }
+
+    getMeDouble() {
+       return makeDoubleString(makeMyString(this));
+    }
+
+    printMe() {
+        console.log( this.getMe() );
+    }
+
     printMeDouble() {
-        console.log( makeDoubleString(makeMyString(this)) );
+        console.log( this.getMeDouble() );
     }
 }
