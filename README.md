@@ -14,6 +14,7 @@ A basic typescript and webpack setup with cjs and esm target bundling.
     * [Running webpack](#running-webpack)
 * [Scripts](#scripts)
 * [Code splitting and the `vendor` chunk](#code-splitting-and-the-vendor-chunk)
+* [Test your components](#test-your-components)
 * [Current Versions](#current-versions)
 
 
